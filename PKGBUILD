@@ -14,8 +14,8 @@ license=('GPL3')
 depends=('gst-plugins-bad' 'libhandy' 'libsoup' 'gtk3')
 makedepends=('cargo' 'git' 'gobject-introspection' 'gst-plugins-base-libs' 'libdazzle' 'meson' 'rust')
 options=('!emptydirs')
-source=("${_pkgname}-${pkgver}.tar.gz::${url}/-/archive/${pkgver}/${_pkgname}-${pkgver}.tar.gz")
-sha256sums=('b391b4d10658e9ba180442ca2d769173a278f19beb498c7251a6b4a62b7c678b')
+source=("${_pkgname}-${pkgver}.tar.gz::${url}/uploads/df12909bb42afbff933e45da0f220eb4/${pkgver}/${_pkgname}-${pkgver}.tar.gz")
+sha256sums=('785dfabedd707a9ea56ba9a05d7c20c63e57fb765bd6c11d46a0aa3b67c64def')
 
 build() {
     cd "${_pkgname}-${pkgver}"
