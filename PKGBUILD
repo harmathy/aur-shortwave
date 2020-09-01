@@ -12,30 +12,24 @@ arch=('any')
 url="https://gitlab.gnome.org/World/${_pkgname}"
 license=('GPL3')
 depends=('gst-plugins-bad' 'libhandy' 'libsoup' 'gtk3')
-makedepends=('cargo' 'git' 'gobject-introspection' 'gst-plugins-base-libs' 'libdazzle' 'meson' 'rustup')
+makedepends=('cargo' 'git' 'gobject-introspection' 'gst-plugins-base-libs' 'libdazzle' 'meson' 'rust')
 options=('!emptydirs')
-source=("${_pkgname}-${pkgver}.tar.gz::${url}/-/archive/${pkgver}/${_pkgname}-${pkgver}.tar.gz")
-sha256sums=('b391b4d10658e9ba180442ca2d769173a278f19beb498c7251a6b4a62b7c678b')
-
-prepare() {
-    rustup install 1.45.2
-    rustup default 1.45.2
-    echo "Rust version used during this build: `rustc \-V`"
-}
+source=("${pkgname}-${pkgver}.tar.xz::${url}/uploads/df12909bb42afbff933e45da0f220eb4/${pkgname}-${pkgver}.tar.xz")
+sha256sums=('dfac0dbc5f0026ec94a83bf3af3f44a02a234c93eedb5943963290536f22be47')
 
 build() {
-    cd "${_pkgname}-${pkgver}"
+    cd "${pkgname}-${pkgver}"
     arch-meson builddir --prefix=/usr
     ninja -C builddir
 }
 
 check() {
-    cd "${_pkgname}-${pkgver}"
+    cd "${pkgname}-${pkgver}"
     ninja -C builddir test
 }
 
 package() {
-    cd "${_pkgname}-${pkgver}"
+    cd "${pkgname}-${pkgver}"
     DESTDIR="${pkgdir}" ninja -C builddir install
 
     install -D -m644 COPYING.md "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
