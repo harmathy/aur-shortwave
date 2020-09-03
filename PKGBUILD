@@ -5,7 +5,7 @@
 _pkgname="Shortwave"
 pkgname="shortwave"
 pkgver="1.1.1"
-pkgrel="4"
+pkgrel="5"
 epoch="1"
 pkgdesc="Find and listen to internet radio stations."
 arch=('any')
